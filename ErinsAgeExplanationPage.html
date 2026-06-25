@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>COG Lab Guide: Reading Binary (Erin's Birthday Edition - v3)</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 15mm 12mm;
+            background-color: #f4f6f9;
+        }
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #2c3e50;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+            font-size: 10.5pt;
+            line-height: 1.5;
+        }
+        .header {
+            background-color: #1e3a8a;
+            color: #ffffff;
+            padding: 20px 15mm;
+            margin: -15mm -12mm 20px -12mm;
+            text-align: center;
+            border-bottom: 4px solid #3b82f6;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 20pt;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .header p {
+            margin: 5px 0 0 0;
+            font-size: 11pt;
+            color: #93c5fd;
+            font-style: italic;
+        }
+        .container {
+            padding: 0 5px;
+        }
+        .context-box {
+            background-color: #ffffff;
+            border-left: 4px solid #3b82f6;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .context-box p {
+            margin: 0;
+            font-style: italic;
+            color: #4b5563;
+        }
+        h2 {
+            font-size: 14pt;
+            color: #1e3a8a;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid #cbd5e1;
+            page-break-after: avoid;
+        }
+        p {
+            margin: 0 0 10px 0;
+        }
+        .math {
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+            font-weight: bold;
+            color: #1e3a8a;
+        }
+        .binary-table {
+            display: table;
+            width: 100%;
+            margin: 15px 0;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .table-row {
+            display: table-row;
+        }
+        .table-row.header-row {
+            background-color: #3b82f6;
+            color: #ffffff;
+            font-weight: bold;
+        }
+        .table-cell {
+            display: table-cell;
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+        .bit-display {
+            background-color: #eff6ff;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            text-align: center;
+            border: 1px dashed #3b82f6;
+        }
+        .bit-box {
+            display: inline-block;
+            width: 45px;
+            margin: 0 4px;
+            text-align: center;
+        }
+        .bit-val {
+            font-size: 16pt;
+            font-weight: bold;
+            color: #1e3a8a;
+            background: #ffffff;
+            border: 2px solid #3b82f6;
+            border-radius: 4px;
+            padding: 4px 0;
+            margin-bottom: 4px;
+        }
+        .bit-place {
+            font-size: 8.5pt;
+            color: #6b7280;
+            font-weight: 600;
+        }
+        ul {
+            margin: 0 0 10px 0;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>How to Read Binary</h1>
+        <p>The COG Lab Official Guide to Tracking Erin's "Age"</p>
+    </div>
+
+    <div class="container">
+        <div class="context-box">
+            <p><strong>COG Lab Context:</strong> Every time Erin passes our Harvey Mudd College lab window on her campus tour, we jokingly yell "Happy Birthday!" Naturally, as scientists, we must rigorously keep track of her "age" incrementing by 1 with each tour. Here is how to represent and read that count in binary.</p>
+        </div>
+
+        <h2>1. The Core Concept: Base-2 vs. Base-10</h2>
+        <p>In our everyday decimal system (Base-10), we count using ten digits (0–9). When we hit 9 and add 1, we roll over to the next "place value" (the tens place). Binary (Base-2) works the exact same way, but it only has two digits: <span class="math">0</span> (Off) and <span class="math">1</span> (On). Instead of scaling by powers of 10, the column place values scale by powers of 2.</p>
+
+        <h2>2. The Binary Place Values</h2>
+        <p>To read a binary number, map each digit from <strong>right to left</strong> to its corresponding power of 2:</p>
+        
+        <div class="binary-table">
+            <div class="table-row header-row">
+                <div class="table-cell">2<sup>6</sup> (Sixty-Fours)</div>
+                <div class="table-cell">2<sup>5</sup> (Thirty-Twos)</div>
+                <div class="table-cell">2<sup>4</sup> (Sixteens)</div>
+                <div class="table-cell">2<sup>3</sup> (Eights)</div>
+                <div class="table-cell">2<sup>2</sup> (Fours)</div>
+                <div class="table-cell">2<sup>1</sup> (Twos)</div>
+                <div class="table-cell">2<sup>0</sup> (Ones)</div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">64</div>
+                <div class="table-cell">32</div>
+                <div class="table-cell">16</div>
+                <div class="table-cell">8</div>
+                <div class="table-cell">4</div>
+                <div class="table-cell">2</div>
+                <div class="table-cell">1</div>
+            </div>
+        </div>
+
+        <h2>3. Tracking Erin's Age: Guided Examples</h2>
+        <p>Let's interpret the binary counter based on how many times Erin has walked past the COG lab window over the semesters.</p>
+
+        <h3>Example A: Erin's 5th Tour (Early Days)</h3>
+        <p>When Erin passed by for the 5th time, the counter read <span class="math">0000101</span>. Let's decode it using the 7-bit layout:</p>
+        
+        <div class="bit-display">
+            <div class="bit-box"><div class="bit-val">0</div><div class="bit-place">64s</div></div>
+            <div class="bit-box"><div class="bit-val">0</div><div class="bit-place">32s</div></div>
+            <div class="bit-box"><div class="bit-val">0</div><div class="bit-place">16s</div></div>
+            <div class="bit-box"><div class="bit-val">0</div><div class="bit-place">8s</div></div>
+            <div class="bit-box"><div class="bit-val">1</div><div class="bit-place">4s</div></div>
+            <div class="bit-box"><div class="bit-val">0</div><div class="bit-place">2s</div></div>
+            <div class="bit-box"><div class="bit-val">1</div><div class="bit-place">1s</div></div>
+        </div>
+
+        <ul>
+            <li>There is a <span class="math">1</span> in the 4s place (<span class="math">1 &times; 4 = 4</span>)</li>
+            <li>There is a <span class="math">1</span> in the 1s place (<span class="math">1 &times; 1 = 1</span>)</li>
+        </ul>
+        <p>Adding them together: <span class="math">4 + 1 = 5</span>. Erin was 5 birthdays old!</p>
+
+        <h3>Example B: A Busy Semester (Erin's 85th Tour)</h3>
+        <p>With how frequently HMC tours circle back past the COG lab, Erin's age quickly skyrockets. Later in the year, the binary counter ticks all the way up to <span class="math">1010101</span>. Let's decode it:</p>
+        
+        <div class="bit-display">
+            <div class="bit-box"><div class="bit-val">1</div><div class="bit-place">64s</div></div>
+            <div class="bit-box"><div class="bit-val">0</div><div class="bit-place">32s</div></div>
+            <div class="bit-box"><div class="bit-val">1</div><div class="bit-place">16s</div></div>
+            <div class="bit-box"><div class="bit-val">0</div><div class="bit-place">8s</div></div>
+            <div class="bit-box"><div class="bit-val">1</div><div class="bit-place">4s</div></div>
+            <div class="bit-box"><div class="bit-val">0</div><div class="bit-place">2s</div></div>
+            <div class="bit-box"><div class="bit-val">1</div><div class="bit-place">1s</div></div>
+        </div>
+
+        <ul>
+            <li>There is a <span class="math">1</span> in the 64s place (<span class="math">1 &times; 64 = 64</span>)</li>
+            <li>There is a <span class="math">1</span> in the 16s place (<span class="math">1 &times; 16 = 16</span>)</li>
+            <li>There is a <span class="math">1</span> in the 4s place (<span class="math">1 &times; 4 = 4</span>)</li>
+            <li>There is a <span class="math">1</span> in the 1s place (<span class="math">1 &times; 1 = 1</span>)</li>
+        </ul>
+        <p>Adding them together: <span class="math">64 + 16 + 4 + 1 = 85</span>. We yell out our congratulations for her 85th birthday of the year!</p>
+
+        <h2>4. Quick COG Lab Cheat Sheet</h2>
+        <p>Next time a tour approaches HMC's COG lab, glance at the board and remember this quick decoding rule: <em>If the rightmost digit is <span class="math">1</span>, Erin's birthday count is an odd number. If it is <span class="math">0</span>, her count is even.</em> With just 7 total bits, you can track her up to age 127 before needing to add a 128s column!</p>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Conventional Current vs. Electron Flow</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 15mm 12mm 12mm 12mm;
+            background-color: #f4f7f6;
+        }
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+            color: #2c3e50;
+            line-height: 1.4;
+            margin: 0;
+            padding: 0;
+            font-size: 11pt;
+        }
+        .header-banner {
+            background-color: #1e3a8a;
+            color: #ffffff;
+            margin: 0 0 20px 0;
+            padding: 25px 20px;
+            text-align: center;
+            border-bottom: 4px solid #f59e0b;
+            border-radius: 6px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 20pt;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .grid-container {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+            margin-bottom: 15px;
+        }
+        .grid-col {
+            display: table-cell;
+            width: 50%;
+            vertical-align: top;
+        }
+        .grid-col:first-child {
+            padding-right: 10px;
+        }
+        .grid-col:last-child {
+            padding-left: 10px;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 6px;
+            padding: 18px 20px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            height: 100%;
+        }
+        .card.conventional {
+            border-top: 4px solid #dc2626;
+        }
+        .card.actual {
+            border-top: 4px solid #2563eb;
+        }
+        h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 14pt;
+            display: block;
+        }
+        .conventional h2 { color: #b91c1c; }
+        .actual h2 { color: #1d4ed8; }
+        
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            font-weight: bold;
+            font-size: 9.5pt;
+            color: white;
+            border-radius: 3px;
+            margin-bottom: 12px;
+        }
+        .conventional .badge { background-color: #dc2626; }
+        .actual .badge { background-color: #2563eb; }
+
+        .diagram-box {
+            text-align: center;
+            background: #f8fafc;
+            border: 1px dashed #cbd5e1;
+            padding: 12px;
+            margin: 12px 0;
+            border-radius: 4px;
+            font-size: 11pt;
+        }
+        
+        ul {
+            margin: 10px 0 0 0;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-banner">
+        <h1>Conventional Current vs. Electron Flow</h1>
+    </div>
+
+    <div class="grid-container">
+        <!-- Conventional Current -->
+        <div class="grid-col">
+            <div class="card conventional">
+                <h2>1. Conventional Current</h2>
+                <div class="badge">The Engineering Standard</div>
+                <p><strong>What it assumes:</strong> Current behaves as a flow of positive charge carriers moving from a <strong>higher electrical potential to a lower electrical potential</strong>.</p>
+                
+                <div class="diagram-box">
+                    <span style="color:#dc2626; font-weight:bold;">Higher Voltage (e.g., +5V) &rarr; Lower Voltage (Ground / 0V)</span>
+                </div>
+                
+                <ul>
+                    <li><strong>At the workbench:</strong> This flows "downhill" from your positive voltage rails down toward Ground.</li>
+                    <li><strong>Where it is used:</strong> Almost all circuit schematics, datasheets, industrial documentation, and standard electrical components.</li>
+                    <li><strong>Rule of Thumb:</strong> Standard symbols (like the arrows on diodes, LEDs, and transistors) point in the direction of conventional current flow.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Electron Flow -->
+        <div class="grid-col">
+            <div class="card actual">
+                <h2>2. Electron Flow</h2>
+                <div class="badge">The Physical Reality</div>
+                <p><strong>What is actually happening:</strong> Negatively charged electrons physically migrate from a <strong>lower electrical potential to a higher electrical potential</strong>.</p>
+                
+                <div class="diagram-box">
+                    <span style="color:#2563eb; font-weight:bold;">Lower Voltage (Ground / 0V) &rarr; Higher Voltage (e.g., +5V)</span>
+                </div>
+                
+                <ul>
+                    <li><strong>At the workbench:</strong> Electrons leave your Ground rail (the massive pool of negative charge carriers) and travel up toward the higher positive voltage level.</li>
+                    <li><strong>Origin:</strong> Discovered in 1897 by J.J. Thomson, establishing that physical charge carriers in metal conductors are negative.</li>
+                    <li><strong>Context:</strong> Important for solid-state semiconductor design and vacuum tube theory, but ignored for basic circuit layout.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

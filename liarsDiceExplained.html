@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>How to Play Liar's Dice</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 15mm 12mm;
+            background-color: #f7f5f0;
+        }
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Georgia', serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            color: #2c2520;
+            background-color: #f7f5f0;
+            margin: 0;
+            padding: 0;
+        }
+        .header-container {
+            background-color: #4a3b32;
+            color: #f7f5f0;
+            padding: 22px 20px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0 0 8px 0;
+            font-size: 24pt;
+            font-weight: normal;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .tagline {
+            font-style: italic;
+            font-size: 11pt;
+            opacity: 0.9;
+            margin: 0;
+        }
+        h2 {
+            font-size: 14pt;
+            color: #4a3b32;
+            border-left: 4px solid #8c6d53;
+            padding-left: 10px;
+            margin-top: 18px;
+            margin-bottom: 10px;
+            page-break-after: avoid;
+        }
+        p {
+            margin: 0 0 10px 0;
+            text-align: justify;
+        }
+        .setup-box {
+            background-color: #eae5dc;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        .setup-box p {
+            margin-bottom: 4px;
+        }
+        .setup-box p:last-child {
+            margin-bottom: 0;
+        }
+        ol, ul {
+            margin: 0 0 12px 0;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 6px;
+        }
+        .math {
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+            font-weight: bold;
+            color: #4a3b32;
+        }
+        .example-box {
+            border-left: 3px dashed #8c6d53;
+            background-color: #f0ebe1;
+            padding: 12px 15px;
+            margin: 12px 0;
+        }
+        .example-title {
+            font-weight: bold;
+            color: #4a3b32;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            font-size: 9.5pt;
+            letter-spacing: 0.5px;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #8c6d53;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0 15px 0;
+            font-size: 10pt;
+        }
+        th, td {
+            border: 1px solid #d3cbbd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #eae5dc;
+            color: #4a3b32;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <h1>How to Play Liar's Dice</h1>
+        <p class="tagline">A Classic Game of Deception, Probability, and Escalating Bluffs</p>
+    </div>
+
+    <h2>The Objective & Setup</h2>
+    <p>
+        Liar's Dice is a game of strategy where players use hidden dice rolls, calculated risk, and clever bluffing to outsmart opponents. The last player remaining with at least one die wins.
+    </p>
+
+    <div class="setup-box">
+        <p><strong>Requirements:</strong> 2 to 6 players. <strong>Equipment:</strong> 5 standard six-sided dice (<span class="math">N = 5</span>) and one opaque cup per player.</p>
+        <p><strong>The Roll:</strong> Everyone shakes their 5 dice in their cup and inverts it onto the table. Players peek at their own dice, keeping them strictly hidden from everyone else.</p>
+    </div>
+
+    <h2>Gameplay & Bidding</h2>
+    <p>
+        Play moves clockwise. The opening player makes a <span class="highlight">bid</span> predicting the <strong>minimum total quantity</strong> of a specific <strong>face value</strong> that exists among <em>all</em> cups combined. (Note: Ones/1s are normal numbers in this version; there are no wildcards).
+    </p>
+    <p>
+        The next player must either <strong>Challenge ("Liar!")</strong> the current bid or <strong>Raise the Bid</strong>.
+    </p>
+
+    <h2>Mastering the Raise (How to Escalate Bids)</h2>
+    <p>
+        Bidding is an escalating auction. To make a valid higher bid, you must increase the mathematical "value" of the claim. You can achieve this using three distinct strategies:
+    </p>
+
+    <div class="example-box">
+        <div class="example-title">Current Bid on the Table: "Three 4s"</div>
+        <ul>
+            <li><strong>Strategy 1: Increase the Face Value (Keep Quantity Same)</strong><br>
+                You keep the quantity at three, but raise the die face. <br>
+                <span class="highlight">Valid Raises:</span> "Three 5s" or "Three 6s". <br>
+                <span class="math">Invalid:</span> "Three 2s" or "Three 3s" (you cannot lower the face value at the same quantity).
+            </li>
+            <li><strong>Strategy 2: Increase the Quantity (Any Face Value)</strong><br>
+                Once you increase the quantity, you reset the face value floor. You can name any number 1–6. <br>
+                <span class="highlight">Valid Raises:</span> "Four 1s", "Four 4s", or "Seven 2s". <br>
+                <span class="math">Invalid:</span> "Two 6s" (even though 6 is higher than 4, dropping the quantity is illegal).
+            </li>
+            <li><strong>Strategy 3: Increase Both Quantity and Face Value</strong><br>
+                A powerhouse move to drastically escalate the pressure. <br>
+                <span class="highlight">Valid Raises:</span> "Four 5s" or "Five 6s".
+            </li>
+        </ul>
+    </div>
+
+    <h2>Bidding Escalation Matrix</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Current Bid</th>
+                <th>Proposed Next Bid</th>
+                <th>Is it Legal?</th>
+                <th>Why?</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Four 3s</td>
+                <td>Four 5s</td>
+                <td style="color: green; font-weight: bold;">LEGAL</td>
+                <td>Quantity stayed the same, face value increased from 3 to 5.</td>
+            </tr>
+            <tr>
+                <td>Four 3s</td>
+                <td>Five 1s</td>
+                <td style="color: green; font-weight: bold;">LEGAL</td>
+                <td>Quantity increased from 4 to 5; face value can now reset to anything.</td>
+            </tr>
+            <tr>
+                <td>Four 3s</td>
+                <td>Four 2s</td>
+                <td style="color: red; font-weight: bold;">ILLEGAL</td>
+                <td>Face value decreased (3 to 2) while keeping the same quantity.</td>
+            </tr>
+            <tr>
+                <td>Four 3s</td>
+                <td>Three 6s</td>
+                <td style="color: red; font-weight: bold;">ILLEGAL</td>
+                <td>Quantity decreased (4 to 3). You can never lower the quantity.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>The Challenge & Losing Dice</h2>
+    <p>
+        If a player shouts <strong>"Liar!"</strong>, the bidding stops. All players lift their cups, and the targeted face value is counted across the entire table. 
+    </p>
+    <ul>
+        <li>If the actual count is <strong>equal to or greater</strong> than the bid, the bidder is safe. The challenger loses 1 die.</li>
+        <li>If the actual count is <strong>less</strong> than the bid, the bidder was caught bluffing. The bidder loses 1 die.</li>
+    </ul>
+    <p>
+        The loser of the die starts the next round. Lose all 5 dice, and you are eliminated.
+    </p>
+
+</body>
+</html>
