@@ -84,11 +84,12 @@
     <div class="grid-2">
         <div class="col col-left">
             <div class="card">
-                <div class="card-title">TN2106</div>
+                <div class="card-title">TN2106</div> (NMOS)
                 <ul class="rule-list">
-                    <li><strong>Source:</strong> Power goes <strong>out</strong>.</li>
-                    <li><strong>Drain:</strong> Power goes <strong>in</strong>.</li>
-                    <li><strong>Gate Control:</strong> Likes power. Applying a <strong>higher</strong> voltage attracts free electrons. This creates a conductive channel that links the Source and Drain pins together.</li>
+                    <li><strong>Logic Purpose:</strong> Controls when a logic <strong>0 (Ground)</strong> is sent to the output.</li>
+                    <li><strong>Source:</strong> Tied to <strong>Ground (0V)</strong>. It acts as the stable reference point for a "0".</li>
+                    <li><strong>Drain:</strong> Connected to your output channel. When active, it pulls the output down to Ground.</li>
+                    <li><strong>Gate Control:</strong> Turn-on requires a <strong>high</strong> voltage (Logic 1). This creates the channel that links the output (Drain) to Ground (Source).</li>
                 </ul>
                 <svg viewBox="0 0 320 170" width="100%" height="auto" style="background:#ffffff; border-radius:4px;">
   <rect x="20" y="50" width="280" height="40" fill="#f87171" />
@@ -196,11 +197,12 @@
         </div>
         <div class="col col-right">
             <div class="card">
-                <div class="card-title">TP2104</div>
+                <div class="card-title">TP2104</div> (PMOS)
                 <ul class="rule-list">
-                    <li><strong>Source:</strong> Power goes <strong>in</strong>.</li>
-                    <li><strong>Drain:</strong> Power goes <strong>out</strong>.</li>
-                    <li><strong>Gate Control:</strong> Likes ground. Applying a <strong>lower</strong> voltage attracts positive 'holes'. This creates a conductive channel that links the Source and Drain pins together.</li>
+                    <li><strong>Logic Purpose:</strong> Controls when a logic <strong>1 (Power/VCC)</strong> is sent to the output.</li>
+                    <li><strong>Source:</strong> Tied to the <strong>Positive Power Rail (VCC)</strong>. It acts as the stable reference point for a "1".</li>
+                    <li><strong>Drain:</strong> Connected to your output channel. When active, it pushes the output up to Power.</li>
+                    <li><strong>Gate Control:</strong> Turn-on requires a <strong>low</strong> voltage (Logic 0 / Ground). This creates the channel that links the output (Drain) to Power (Source).</li>
                 </ul>
                 <svg viewBox="0 0 320 170" width="100%" height="auto" style="background:#ffffff; border-radius:4px;">
   <rect x="20" y="50" width="280" height="40" fill="#2563eb" />
